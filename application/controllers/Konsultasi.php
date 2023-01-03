@@ -107,5 +107,22 @@ class Konsultasi extends CI_Controller
 			$this->db->where('kd_penyakit', $rows->kd_penyakit);
 			$this->db->update('temp_total', $data);
 		}
+		$data_persentase = $this->db->query("SELECT * FROM temp_total join penyakit on penyakit.kd_penyakit =temp_total.kd_penyakit order by persentase desc ")->result();
+		$top = $this->db->query("SELECT * FROM temp_total join penyakit on penyakit.kd_penyakit =temp_total.kd_penyakit order by persentase desc limit 1 ")->row();
+		// update diagnosa
+		$data = array(
+			'kd_penyakit' => $top->kd_penyakit,
+			'presentase' => $top->persentase
+		);
+		$this->db->where('id_diagnosa', $id_diagnosa);
+		$this->db->update('diagnosa', $data);
+
+		$informasi = array(
+			'user' => $this->User_model->get_by_id($user_id),
+			'data_persentase' => $data_persentase,
+			'data_gejala' => $kd_gejala,
+			'top' => $top,
+		);
+		$this->template->load('template', 'diagnosa', $informasi);
 	}
 }

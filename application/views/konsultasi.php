@@ -39,16 +39,21 @@
 										</div>
 										<div class="form-column col-lg-12 col-md-12 col-sm-12">
 											<form action="<?= base_url() ?>konsultasi/proses" method="POST">
-												<div class="form-group col-md-6  offset-md-3">
-													<div class=" form-group">
-														<select name="user_id" class="form-control" required>
-															<option value=""> <b>-- Pilih User --</b> </option>
-															<?php foreach ($user_data as  $value) { ?>
-																<option value="<?= $value->user_id ?>"><?= $value->nama ?> </option>
-															<?php } ?>
-														</select>
+												<?php if ($this->fungsi->user_login()->level_id == 1) { ?>
+													<div class="form-group col-md-6  offset-md-3">
+														<div class=" form-group">
+															<select name="user_id" class="form-control" required>
+																<option value=""> <b>-- Pilih User --</b> </option>
+																<?php foreach ($user_data as  $value) { ?>
+																	<option value="<?= $value->user_id ?>"><?= $value->nama ?> </option>
+																<?php } ?>
+															</select>
+														</div>
 													</div>
-												</div>
+												<?php } else { ?>
+													<input type="hidden" readonly class="form-control" name="user_id" value="<?= $this->fungsi->user_login()->user_id ?>">
+												<?php } ?>
+
 												<div class="form-row">
 													<?php foreach ($gejala_data as $value) { ?>
 														<div class="form-group col-md-6" style="margin-bottom: -10px;">
@@ -56,7 +61,7 @@
 																<span class="input-group-addon">
 																	<input type="checkbox" aria-label="Checkbox for following text input" name="kd_gejala[]" value="<?= $value->kd_gejala ?>">
 																</span>
-																<input type="text" readonly class="form-control" aria-label="Text input with dropdown button" placeholder="<?= $value->gejala ?>">
+																<input type="text" readonly class="form-control" aria-label="Text input with dropdown button" placeholder="<?= $value->kd_gejala ?> - <?= $value->gejala ?>">
 															</div>
 														</div>
 													<?php  } ?>

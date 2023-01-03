@@ -172,7 +172,13 @@
 									</li>
 								<?php } else { ?>
 									<li class="">
-										<a href="<?= base_url() ?>penyakit">
+										<a href="<?= base_url() ?>dashboard">
+											<span class="pcoded-micon"><i class="feather icon-home"></i></span>
+											<span class="pcoded-mtext">Dashboard</span>
+										</a>
+									</li>
+									<li class="">
+										<a href="<?= base_url() ?>konsultasi">
 											<span class="pcoded-micon"><i class="feather icon-list"></i></span>
 											<span class="pcoded-mtext">Konsultasi</span>
 										</a>
