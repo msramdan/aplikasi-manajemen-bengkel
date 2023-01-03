@@ -59,21 +59,21 @@
 									<form action="<?= base_url() ?>pengetahuan/bobot" method="POST">
 
 										<div class="form-row">
-
-											<?php $no = 1;
-											foreach ($gejala_data as $gejala) {
-											?>
-												<div class="form-group col-md-3">
-													<label for=""><?php echo $gejala->gejala ?></label>
-													<input type="number" max="5" min="1" value="<?= bobot($kd_kasus, $gejala->kd_gejala, $kd_penyakit) ?>" name="bobot[]" class="form-control" id="" placeholder="">
-													<input type="hidden" readonly value="<?= $kd_kasus  ?>" name="kd_kasus[]" class="form-control" id="" placeholder="">
-													<input type="hidden" readonly value="<?= $gejala->kd_gejala ?>" name="kd_gejala[]" class="form-control" id="" placeholder="">
-													<input type="hidden" readonly value="<?= $kd_penyakit ?>" name="kd_penyakit[]" class="form-control" id="" placeholder="">
+											<input type="hidden" readonly value="<?= $kd_penyakit ?>" name="kd_penyakit" class="form-control" id="" placeholder="">
+											<input type="hidden" readonly value="<?= $kd_kasus ?>" name="kd_kasus" class="form-control" id="" placeholder="">
+											<?php foreach ($gejala_data as $value) { ?>
+												<div class="form-group col-md-6" style="margin-bottom: -10px;">
+													<div class="input-group">
+														<span class="input-group-addon">
+															<input type="checkbox" <?= checked($kd_kasus, $kd_penyakit, $value->kd_gejala) ?> name="kd_gejala[]" value="<?= $value->kd_gejala ?>" aria-label="Checkbox for following text input">
+														</span>
+														<input type="text" readonly class="form-control" aria-label="Text input with dropdown button" placeholder="<?= $value->gejala ?>">
+													</div>
 												</div>
-											<?php } ?>
-											<div class="form-group col-md-12">
-												<a href="<?php echo site_url('pengetahuan') ?>" class="btn btn-default">Cancel</a>
-												<button type="submit" class="btn btn-primary"> Save</button>
+											<?php  } ?>
+											<div class="form-group" style="margin-top: 5px;float:right">
+												<a href="<?php echo site_url('pengetahuan') ?>" class="btn btn-info"><i class="fa fa-undo"></i> Kembali</a>
+												<button type="submit" class="btn btn-danger"><i class="fa fa-save"></i> Save</button>
 											</div>
 										</div>
 									</form>

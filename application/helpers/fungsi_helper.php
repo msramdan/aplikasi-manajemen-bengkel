@@ -42,15 +42,11 @@ function namaGejala($kd_gejala)
 	return $value;
 }
 
-function bobot($kd_kasus, $kd_gejala, $kd_penyakit)
+function checked($kd_kasus, $kd_penyakit, $kd_gejala)
 {
 	$ci = &get_instance();
 	$jml = $ci->db->query("SELECT * FROM pengetahuan WHERE kd_kasus ='$kd_kasus' AND kd_gejala ='$kd_gejala' AND kd_penyakit ='$kd_penyakit' ");
-	if ($jml->num_rows() == 0) {
-		$value = '';
-	} else {
-		$x = $jml->row();
-		$value = $x->bobot;
+	if ($jml->num_rows() > 0) {
+		return "checked";
 	}
-	return $value;
 }

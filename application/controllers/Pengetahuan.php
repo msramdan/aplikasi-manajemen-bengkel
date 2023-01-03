@@ -70,21 +70,16 @@ class Pengetahuan extends CI_Controller
 		if ($this->form_validation->run() == FALSE) {
 			$this->create();
 		} else {
-			$bobot               = $_POST['bobot'];
 			$kd_gejala       = $_POST['kd_gejala'];
 			$fix_kasus = $this->input->post('kd_kasus', TRUE);
 			$fix_penyakit =  $this->input->post('kd_penyakit', TRUE);
 
 			$jumlah_data = count($kd_gejala);
 			for ($i = 0; $i < $jumlah_data; $i++) {
-				$fix_gejala = $kd_gejala[$i];
-				if ($bobot[$i] != 0) {
-					$data['kd_kasus'] = $fix_kasus;
-					$data['kd_penyakit'] = $fix_penyakit;
-					$data['kd_gejala'] = $fix_gejala;
-					$data['bobot'] = $bobot[$i];
-					$this->db->insert('pengetahuan', $data);
-				}
+				$data['kd_kasus'] = $fix_kasus;
+				$data['kd_penyakit'] = $fix_penyakit;
+				$data['kd_gejala'] = $kd_gejala[$i];
+				$this->db->insert('pengetahuan', $data);
 			}
 			$this->session->set_flashdata('message', 'Create Record Success');
 			redirect(site_url('pengetahuan'));
@@ -149,44 +144,30 @@ class Pengetahuan extends CI_Controller
 
 	public function bobot()
 	{
-		$bobot               = $_POST['bobot'];
 		$kd_penyakit       = $_POST['kd_penyakit'];
 		$kd_gejala       = $_POST['kd_gejala'];
 		$kd_kasus       = $_POST['kd_kasus'];
 
-		$jumlah_data = count($kd_kasus);
+		$awal = $this->db->query("SELECT * FROM pengetahuan WHERE kd_kasus ='$kd_kasus' AND kd_penyakit ='$kd_penyakit'")->result();
+		foreach ($awal as $value) {
+			$cek = in_array($value->kd_gejala, $kd_gejala);
+			if (!$cek) {
+				$this->db->query("DELETE FROM pengetahuan WHERE kd_kasus ='$kd_kasus' AND kd_penyakit ='$kd_penyakit' AND kd_gejala='$value->kd_gejala'");
+			}
+		}
+
+
+
+		$jumlah_data = count($kd_gejala);
 		for ($i = 0; $i < $jumlah_data; $i++) {
-			$fix_penyakit = $kd_penyakit[$i];
 			$fix_gejala = $kd_gejala[$i];
-			$fix_kasus = $kd_kasus[$i];
-
-
 			// cek udah ada data atw blm
-			$jml = $this->db->query("SELECT * FROM pengetahuan WHERE kd_kasus ='$fix_kasus' AND kd_penyakit ='$fix_penyakit' AND kd_gejala ='$fix_gejala'");
+			$jml = $this->db->query("SELECT * FROM pengetahuan WHERE kd_kasus ='$kd_kasus' AND kd_penyakit ='$kd_penyakit' AND kd_gejala ='$fix_gejala'");
 			if ($jml->num_rows() == 0) {
-				// cek nilainya 0 gk
-				if ($bobot[$i] != 0) {
-					$data['kd_kasus'] = $fix_kasus;
-					$data['kd_penyakit'] = $fix_penyakit;
-					$data['kd_gejala'] = $fix_gejala;
-					$data['bobot'] = $bobot[$i];
-					$this->db->insert('pengetahuan', $data);
-				}
-			} else {
-				if ($bobot[$i] != 0) {
-					$data = array(
-						'bobot' => $bobot[$i]
-					);
-					$this->db->where('kd_kasus', $fix_kasus);
-					$this->db->where('kd_penyakit', $fix_penyakit);
-					$this->db->where('kd_gejala', $fix_gejala);
-					$this->db->update('pengetahuan', $data);
-				} else {
-					$this->db->where('kd_kasus', $fix_kasus);
-					$this->db->where('kd_penyakit', $fix_penyakit);
-					$this->db->where('kd_gejala', $fix_gejala);
-					$this->db->delete('pengetahuan');
-				}
+				$data['kd_kasus'] = $kd_kasus;
+				$data['kd_penyakit'] = $kd_penyakit;
+				$data['kd_gejala'] = $fix_gejala;
+				$this->db->insert('pengetahuan', $data);
 			}
 		}
 		$this->session->set_flashdata('message', 'Update Value Bobot Success');

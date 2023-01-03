@@ -33,7 +33,7 @@
 											<table id="data-table-default" class="table  table-bordered table-hover table-td-valign-middle">
 												<tr>
 													<td>Kode Kasus <?php echo form_error('kd_kasus') ?></td>
-													<td><input readonly type="text" class="form-control" name="kd_kasus" id="kd_kasus" placeholder="Kd Kasus" value="<?php echo $kd_kasus; ?>" /></td>
+													<td><input required readonly type="text" class="form-control" name="kd_kasus" id="kd_kasus" placeholder="Kd Kasus" value="<?php echo $kd_kasus; ?>" /></td>
 												</tr>
 												<tr>
 													<td>Penyakit <?php echo form_error('kd_penyakit') ?></td>
@@ -48,23 +48,21 @@
 												</tr>
 										</thead>
 										</table>
-
-
 										<div class="form-row">
-											<?php $no = 1;
-											foreach ($gejala_data as $gejala) {
-											?>
-												<div class="form-group col-md-6">
-													<label for=""><?php echo $gejala->gejala ?></label>
-													<input type="number" max="5" min="1" value="" name="bobot[]" class="form-control" id="" placeholder="">
-													<input type="hidden" readonly value="<?= $gejala->kd_gejala ?>" name="kd_gejala[]" class="form-control" id="" placeholder="">
+											<?php foreach ($gejala_data as $value) { ?>
+												<div class="form-group col-md-6" style="margin-bottom: -10px;">
+													<div class="input-group">
+														<span class="input-group-addon">
+															<input type="checkbox" name="kd_gejala[]" value="<?= $value->kd_gejala ?>" aria-label="Checkbox for following text input">
+														</span>
+														<input type="text" readonly class="form-control" aria-label="Text input with dropdown button" placeholder="<?= $value->gejala ?>">
+													</div>
 												</div>
-											<?php } ?>
-											<div class="form-group col-md-12">
-												<a href="<?php echo site_url('pengetahuan') ?>" class="btn btn-default">Cancel</a>
-												<button type="submit" class="btn btn-primary"> Save</button>
+											<?php  } ?>
+											<div class="form-group" style="margin-top: 5px;float:right">
+												<a href="<?php echo site_url('pengetahuan') ?>" class="btn btn-info"><i class="fa fa-undo"></i> Kembali</a>
+												<button type="submit" class="btn btn-danger"><i class="fa fa-save"></i> Save</button>
 											</div>
-										</div>
 									</form>
 								</div>
 							</div>

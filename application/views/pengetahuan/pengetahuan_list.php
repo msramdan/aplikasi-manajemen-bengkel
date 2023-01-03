@@ -51,7 +51,7 @@
 														<?php $data = $this->db->query("SELECT * From pengetahuan join gejala on gejala.kd_gejala = pengetahuan.kd_gejala where kd_kasus='$pengetahuan->kd_kasus'")->result(); ?>
 														<ul>
 															<?php foreach ($data as $value) { ?>
-																<li><?= $value->gejala ?> - <b><?= $value->bobot ?></b> </li>
+																<li> - <?= $value->gejala ?></li>
 															<?php } ?>
 														</ul>
 													</td>
