@@ -127,8 +127,6 @@
 						<div class="pcoded-inner-navbar main-menu">
 							<div class="pcoded-navigatio-lavel">MAIN MENU</div>
 							<ul class="pcoded-item pcoded-left-item">
-
-
 								<?php if ($this->fungsi->user_login()->level_id == 1) { ?>
 									<li class="">
 										<a href="<?= base_url() ?>dashboard">
@@ -196,6 +194,14 @@
 							</ul>
 						</div>
 					</nav>
+					<div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
+					<?php if ($this->session->flashdata('message')) : ?>
+					<?php endif; ?>
+
+					<div class="flash-data2" data-flashdata2="<?= $this->session->flashdata('error'); ?>"></div>
+					<?php if ($this->session->flashdata('error')) : ?>
+					<?php endif; ?>
+
 					<?php echo $contents ?>
 				</div>
 			</div>
@@ -229,6 +235,10 @@
 	<script src="<?= base_url() ?>assets\libraries\assets\js\jquery.mCustomScrollbar.concat.min.js"></script>
 	<script type="text/javascript" src="<?= base_url() ?>assets\libraries\assets\js\script.js"></script>
 	<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/sweetalert.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/sweetalert.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+	<script src="<?= base_url(); ?>assets/js/dataflash.js"></script>
 
 </body>
 
