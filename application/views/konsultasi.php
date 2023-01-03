@@ -38,10 +38,10 @@
 											</center>
 										</div>
 										<div class="form-column col-lg-12 col-md-12 col-sm-12">
-											<form action="<?= base_url() ?>web/proses" method="POST">
+											<form action="<?= base_url() ?>konsultasi/proses" method="POST">
 												<div class="form-group col-md-6  offset-md-3">
 													<div class=" form-group">
-														<select name="jk" class="form-control" required>
+														<select name="user_id" class="form-control" required>
 															<option value=""> <b>-- Pilih User --</b> </option>
 															<?php foreach ($user_data as  $value) { ?>
 																<option value="<?= $value->user_id ?>"><?= $value->nama ?> </option>
@@ -54,7 +54,7 @@
 														<div class="form-group col-md-6" style="margin-bottom: -10px;">
 															<div class="input-group">
 																<span class="input-group-addon">
-																	<input type="checkbox" aria-label="Checkbox for following text input">
+																	<input type="checkbox" aria-label="Checkbox for following text input" name="kd_gejala[]" value="<?= $value->kd_gejala ?>">
 																</span>
 																<input type="text" readonly class="form-control" aria-label="Text input with dropdown button" placeholder="<?= $value->gejala ?>">
 															</div>

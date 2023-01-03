@@ -31,7 +31,7 @@
             <form action="<?php echo $action; ?>" method="post">
             <thead>
             <table id="data-table-default" class="table  table-bordered table-hover table-td-valign-middle">
-	    <tr><td>Id Pasien <?php echo form_error('id_pasien') ?></td><td><input type="text" class="form-control" name="id_pasien" id="id_pasien" placeholder="Id Pasien" value="<?php echo $id_pasien; ?>" /></td></tr>
+	    <tr><td>Id User <?php echo form_error('id_user') ?></td><td><input type="text" class="form-control" name="id_user" id="id_user" placeholder="Id User" value="<?php echo $id_user; ?>" /></td></tr>
 	    <tr><td>Kd Penyakit <?php echo form_error('kd_penyakit') ?></td><td><input type="text" class="form-control" name="kd_penyakit" id="kd_penyakit" placeholder="Kd Penyakit" value="<?php echo $kd_penyakit; ?>" /></td></tr>
 	    
         <tr><td>Kd Gejala <?php echo form_error('kd_gejala') ?></td><td> <textarea class="form-control" rows="3" name="kd_gejala" id="kd_gejala" placeholder="Kd Gejala"><?php echo $kd_gejala; ?></textarea></td></tr>

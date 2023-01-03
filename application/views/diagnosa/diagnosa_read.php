@@ -30,7 +30,7 @@
 						<div class="card">
 							<div class="card-block">
 <table id="data-table-default" class="table table-hover table-bordered table-td-valign-middle">
-	    <tr><td>Id Pasien</td><td><?php echo $id_pasien; ?></td></tr>
+	    <tr><td>Id User</td><td><?php echo $id_user; ?></td></tr>
 	    <tr><td>Kd Penyakit</td><td><?php echo $kd_penyakit; ?></td></tr>
 	    <tr><td>Kd Gejala</td><td><?php echo $kd_gejala; ?></td></tr>
 	    <tr><td>Presentase</td><td><?php echo $presentase; ?></td></tr>

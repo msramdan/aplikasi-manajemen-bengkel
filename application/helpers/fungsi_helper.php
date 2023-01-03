@@ -50,3 +50,21 @@ function checked($kd_kasus, $kd_penyakit, $kd_gejala)
 		return "checked";
 	}
 }
+
+function pembilang($kd_penyakit, $kd_gejala)
+{
+	$ci = &get_instance();
+	$data = $ci->db->query("SELECT * FROM temp_probabilitas_gejala join temp_probabilitas on temp_probabilitas.kd_penyakit = temp_probabilitas_gejala.kd_penyakit where kd_gejala='$kd_gejala' AND temp_probabilitas_gejala.kd_penyakit='$kd_penyakit' ")->row();
+	return $data->nilai * $data->probabilitas;
+}
+
+function penyebut($kd_gejala)
+{
+	$ci = &get_instance();
+	$data = $ci->db->query("SELECT * FROM temp_probabilitas_gejala join temp_probabilitas on temp_probabilitas.kd_penyakit = temp_probabilitas_gejala.kd_penyakit where kd_gejala='$kd_gejala'")->result();
+	$nilaiTotal = 0;
+	foreach ($data as $value) {
+		$nilaiTotal = $nilaiTotal + ($value->nilai * $value->probabilitas);
+	}
+	return $nilaiTotal;
+}

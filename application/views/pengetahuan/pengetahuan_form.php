@@ -41,7 +41,7 @@
 														<select name="kd_penyakit" class="form-control" required>
 															<option value="">-- Pilih --</option>
 															<?php foreach ($kd_penyakit as $data) { ?>
-																<option value="<?= $data->kode ?>"><?= $data->penyakit ?></option>
+																<option value="<?= $data->kode ?>"><?= $data->kode ?> - <?= $data->penyakit ?></option>
 															<?php } ?>
 														</select>
 													</td>
@@ -55,7 +55,7 @@
 														<span class="input-group-addon">
 															<input type="checkbox" name="kd_gejala[]" value="<?= $value->kd_gejala ?>" aria-label="Checkbox for following text input">
 														</span>
-														<input type="text" readonly class="form-control" aria-label="Text input with dropdown button" placeholder="<?= $value->gejala ?>">
+														<input type="text" readonly class="form-control" aria-label="Text input with dropdown button" placeholder="<?= $value->kd_gejala ?> - <?= $value->gejala ?>">
 													</div>
 												</div>
 											<?php  } ?>
