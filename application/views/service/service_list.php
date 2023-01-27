@@ -7,7 +7,7 @@
 						<div class="col-lg-8">
 							<div class="page-header-title">
 								<div class="d-inline">
-									<h4>History Login</h4>
+									<h4>Service</h4>
 								</div>
 							</div>
 						</div>
@@ -15,10 +15,9 @@
 							<div class="page-header-breadcrumb">
 								<ul class="breadcrumb-title">
 									<li class="breadcrumb-item">
-										<a href="<?= base_url() ?>dashboard"> Home </a>
+										<a href="index-1.htm"> Home </a>
 									</li>
-									<li class="breadcrumb-item"><a href="<?= base_url() ?>history_login">History Login</a>
-									</li>
+									<li class="breadcrumb-item">Service</li>
 								</ul>
 							</div>
 						</div>
@@ -29,23 +28,34 @@
 						<div class="col-sm-12">
 							<div class="card">
 								<div class="card-block" style="overflow-x: scroll;">
+									<div style="padding-bottom: 10px;">
+										<?php echo anchor(site_url('service/create'), '<i class="fa fa-plus-square" aria-hidden="true"></i> Tambah Data', 'class="btn btn-grd-info btn sm"'); ?></div>
 									<table id="simpletable" class="table table-bordered table-hover nowrap">
 										<thead>
 											<tr class="table-active">
 												<th>No</th>
-												<th>Info</th>
-												<th>User Agent</th>
-												<th>Tanggal</th>
+												<th>Nama Service</th>
+												<th>Harga</th>
+												<th>Keterangan</th>
+												<th>Action</th>
 											</tr>
 										</thead>
 										<tbody><?php $no = 1;
-												foreach ($history_login_data as $history_login) {
+												foreach ($service_data as $service) {
 												?>
 												<tr>
 													<td><?= $no++ ?></td>
-													<td><?php echo $history_login->info ?></td>
-													<td><?php echo $history_login->user_agent ?></td>
-													<td><?php echo $history_login->tanggal ?></td>
+													<td><?php echo $service->nama_service ?></td>
+													<td><?php echo $service->harga ?></td>
+													<td><?php echo $service->keterangan ?></td>
+													<td>
+														<?php
+
+														echo anchor(site_url('service/update/' . encrypt_url($service->service_id)), '<i class="fa fa-pencil" aria-hidden="true"></i>', 'class="btn btn-grd-primary btn-sm"');
+														echo '  ';
+														echo anchor(site_url('service/delete/' . encrypt_url($service->service_id)), '<i class="fa fa-trash" aria-hidden="true"></i>', 'class="btn btn-grd-danger btn-sm" Delete', 'onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
+														?>
+													</td>
 												</tr>
 											<?php } ?>
 										</tbody>

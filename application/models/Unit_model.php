@@ -3,11 +3,11 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class History_login_model extends CI_Model
+class Unit_model extends CI_Model
 {
 
-    public $table = 'history_login';
-    public $id = 'history_login_id';
+    public $table = 'unit';
+    public $id = 'unit_id';
     public $order = 'DESC';
 
     function __construct()
@@ -31,11 +31,8 @@ class History_login_model extends CI_Model
     
     // get total rows
     function total_rows($q = NULL) {
-        $this->db->like('history_login_id', $q);
-	$this->db->or_like('user_id', $q);
-	$this->db->or_like('info', $q);
-	$this->db->or_like('user_agent', $q);
-	$this->db->or_like('tanggal', $q);
+        $this->db->like('unit_id', $q);
+	$this->db->or_like('nama_unit', $q);
 	$this->db->from($this->table);
         return $this->db->count_all_results();
     }

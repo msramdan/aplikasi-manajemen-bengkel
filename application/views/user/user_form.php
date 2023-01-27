@@ -92,7 +92,7 @@
 													<td><select name="level_id" class="form-control theSelect" value="<?= $level_id ?>">
 															<option value="">-- Pilih --</option>
 															<option value="1" <?php echo $level_id == 1 ? 'selected' : 'null' ?>>Admin Aplikasi</option>
-															<option value="2" <?php echo $level_id == 2 ? 'selected' : 'null' ?>>User</option>
+															<option value="2" <?php echo $level_id == 2 ? 'selected' : 'null' ?>>Kasir</option>
 														</select>
 													</td>
 												</tr>

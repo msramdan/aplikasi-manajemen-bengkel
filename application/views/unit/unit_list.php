@@ -7,7 +7,7 @@
 						<div class="col-lg-8">
 							<div class="page-header-title">
 								<div class="d-inline">
-									<h4>Diagnosa</h4>
+									<h4>Unit</h4>
 								</div>
 							</div>
 						</div>
@@ -17,7 +17,7 @@
 									<li class="breadcrumb-item">
 										<a href="index-1.htm"> Home </a>
 									</li>
-									<li class="breadcrumb-item">Diagnosa</li>
+									<li class="breadcrumb-item">Unit</li>
 								</ul>
 							</div>
 						</div>
@@ -28,35 +28,30 @@
 						<div class="col-sm-12">
 							<div class="card">
 								<div class="card-block" style="overflow-x: scroll;">
-									<?php echo anchor(site_url('diagnosa/excel'), '<i class="far fa-file-excel" aria-hidden="true"></i> Export Ms Excel', 'class="btn btn-success btn-xs export_data"'); ?>
-									<br><br>
+									<div style="padding-bottom: 10px;">
+										<?php echo anchor(site_url('unit/create'), '<i class="fa fa-plus-square" aria-hidden="true"></i> Tambah Data', 'class="btn btn-grd-info btn sm"'); ?></div>
 									<table id="simpletable" class="table table-bordered table-hover nowrap">
 										<thead>
 											<tr class="table-active">
 												<th>No</th>
-												<th>User</th>
-												<th>Penyakit</th>
-												<th>Gejala</th>
-												<th>Presentase</th>
-												<th>Tanggal</th>
+												<th>Nama Unit</th>
+												<th>Action</th>
 											</tr>
 										</thead>
 										<tbody><?php $no = 1;
-												foreach ($diagnosa_data as $diagnosa) {
+												foreach ($unit_data as $unit) {
 												?>
 												<tr>
 													<td><?= $no++ ?></td>
-													<td><?php echo $diagnosa->nama ?></td>
-													<td><?php echo $diagnosa->kd_penyakit ?> - <?php echo $diagnosa->penyakit ?></td>
+													<td><?php echo $unit->nama_unit ?></td>
 													<td>
-														<ul>
-															<?php foreach (json_decode($diagnosa->kd_gejala) as $value) { ?>
-																<li>- <?= namaGejala($value) ?></li>
-															<?php } ?>
-														</ul>
+														<?php
+
+														echo anchor(site_url('unit/update/' . encrypt_url($unit->unit_id)), '<i class="fa fa-pencil" aria-hidden="true"></i>', 'class="btn btn-grd-primary btn-sm"');
+														echo '  ';
+														echo anchor(site_url('unit/delete/' . encrypt_url($unit->unit_id)), '<i class="fa fa-trash" aria-hidden="true"></i>', 'class="btn btn-grd-danger btn-sm" Delete', 'onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
+														?>
 													</td>
-													<td><?php echo $diagnosa->presentase ?> %</td>
-													<td><?php echo $diagnosa->tanggal ?></td>
 												</tr>
 											<?php } ?>
 										</tbody>

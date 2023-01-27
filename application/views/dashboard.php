@@ -5,15 +5,13 @@
 				<div class="page-body">
 					<div class="row">
 						<!-- task, page, download counter  start -->
-						<div class="col-xl-3 col-md-6">
+						<!-- <div class="col-xl-3 col-md-6">
 							<div class="card bg-c-yellow update-card">
 								<div class="card-block">
 									<div class="row align-items-end">
 										<div class="col-8">
-											<?php
-											$user = $this->db->get('user')->num_rows();
-											?>
-											<h4 class="text-white"><?= $user ?> Data</h4>
+
+											<h4 class="text-white">Data</h4>
 											<h6 class="text-white m-b-0">Data User</h6>
 										</div>
 										<div class="col-4 text-right"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; inset: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
@@ -31,10 +29,7 @@
 								<div class="card-block">
 									<div class="row align-items-end">
 										<div class="col-8">
-											<?php
-											$penyakit = $this->db->get('penyakit')->num_rows();
-											?>
-											<h4 class="text-white"><?= $penyakit ?> Data</h4>
+											<h4 class="text-white"> Data</h4>
 											<h6 class="text-white m-b-0">Data Penyakit</h6>
 										</div>
 										<div class="col-4 text-right"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; inset: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
@@ -52,10 +47,7 @@
 								<div class="card-block">
 									<div class="row align-items-end">
 										<div class="col-8">
-											<?php
-											$gejala = $this->db->get('gejala')->num_rows();
-											?>
-											<h4 class="text-white"><?= $gejala ?> Data</h4>
+											<h4 class="text-white">Data</h4>
 											<h6 class="text-white m-b-0">Data Gejala</h6>
 										</div>
 										<div class="col-4 text-right"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; inset: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
@@ -73,10 +65,7 @@
 								<div class="card-block">
 									<div class="row align-items-end">
 										<div class="col-8">
-											<?php
-											$diagnosa = $this->db->get('diagnosa')->num_rows();
-											?>
-											<h4 class="text-white"><?= $diagnosa ?> Data</h4>
+											<h4 class="text-white"> Data</h4>
 											<h6 class="text-white m-b-0">Diagnosa</h6>
 										</div>
 										<div class="col-4 text-right"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; inset: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
@@ -88,15 +77,13 @@
 									<p class="text-white m-b-0"><i class="fa fa-arrow-right" aria-hidden="true"></i> View Detail</p>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
-					<center>
-
-
+					<!-- <center>
 						<img src="<?= base_url() ?>assets/img/logo.png" alt="" style="margin-top: 50px;">
 						<h4>Selamat Datang Di Aplikasi Sistem Pakar <br>
 							Diagnosa Penyakit Pada Ibu Hamil Dengan Metode Forward Chaining Dan Naive Bayes</h4>
-					</center>
+					</center> -->
 				</div>
 			</div>
 		</div>

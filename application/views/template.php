@@ -2,35 +2,25 @@
 <html lang="en">
 
 <head>
-	<title>Sistem Pakar </title>
+	<title>Manajemen Bengkel </title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="#">
 	<meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
 	<meta name="author" content="#">
-	<!-- Favicon icon -->
 	<link rel="icon" href="<?= base_url() ?>assets\libraries\assets\images\favicon.ico" type="image/x-icon">
-	<!-- Google font-->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
-	<!-- Required Fremwork -->
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets\libraries\bower_components\bootstrap\css\bootstrap.min.css">
-	<!-- themify-icons line icon -->
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets\libraries\assets\icon\themify-icons\themify-icons.css">
-	<!-- ico font -->
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets\libraries\assets\icon\icofont\css\icofont.css">
-	<!-- feather Awesome -->
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets\libraries\assets\icon\feather\css\feather.css">
-	<!-- Data Table Css -->
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets\libraries\bower_components\datatables.net-bs4\css\dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets\libraries\assets\pages\data-table\css\buttons.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets\libraries\bower_components\datatables.net-responsive-bs4\css\responsive.bootstrap4.min.css">
-	<!-- Style.css -->
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets\libraries\assets\css\style.css">
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets\libraries\assets\css\jquery.mCustomScrollbar.css">
-
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets\libraries\assets\icon\font-awesome\css\font-awesome.min.css">
-	<!-- ico font -->
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets\libraries\assets\icon\icofont\css\icofont.css">
 
 </head>
@@ -86,7 +76,7 @@
 							<i class="feather icon-menu"></i>
 						</a>
 						<a href="index-1.htm">
-							Sistem Pakar CBR
+							Manajemen Bengkel
 						</a>
 						<a class="mobile-options">
 							<i class="feather icon-more-horizontal"></i>
@@ -135,38 +125,76 @@
 										</a>
 									</li>
 									<li class="">
-										<a href="<?= base_url() ?>konsultasi">
-											<span class="pcoded-micon"><i class="feather icon-list"></i></span>
-											<span class="pcoded-mtext">Konsultasi</span>
+										<a href="<?= base_url() ?>sale">
+											<span class="pcoded-micon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+											<span class="pcoded-mtext">Transaksi Penjualan</span>
+										</a>
+									</li>
+									<li class="pcoded-hasmenu ">
+										<a href="javascript:void(0)">
+											<span class="pcoded-micon"><i class="fa fa-refresh" aria-hidden="true"></i></span>
+											<span class="pcoded-mtext">Stok In/Out Barang</span>
+										</a>
+										<ul class="pcoded-submenu">
+											<li class="">
+												<a href="<?= base_url() ?>stok_in">
+													<span class="pcoded-mtext">Stok In</span>
+												</a>
+											</li>
+											<li class="">
+												<a href="<?= base_url() ?>stok_out">
+													<span class="pcoded-mtext">Stok Out</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+
+									<li class="pcoded-hasmenu ">
+										<a href="javascript:void(0)">
+											<span class="pcoded-micon"><i class="fa fa-cube"></i></span>
+											<span class="pcoded-mtext">Data Barang</span>
+										</a>
+										<ul class="pcoded-submenu">
+											<li class="">
+												<a href="<?= base_url() ?>barang">
+													<span class="pcoded-mtext">Barang</span>
+												</a>
+											</li>
+											<li class="">
+												<a href="<?= base_url() ?>unit">
+													<span class="pcoded-mtext">Unit</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="">
+										<a href="<?= base_url() ?>service">
+											<span class="pcoded-micon"><i class="fa fa-wrench" aria-hidden="true"></i></span>
+											<span class="pcoded-mtext">Data Jasa Service</span>
 										</a>
 									</li>
 									<li class="">
-										<a href="<?= base_url() ?>pengetahuan">
-											<span class="pcoded-micon"><i class="feather icon-list"></i></span>
-											<span class="pcoded-mtext">Basis Kasus / Pengetahuan</span>
+										<a href="<?= base_url() ?>customer">
+											<span class="pcoded-micon"><i class="feather icon-users"></i></span>
+											<span class="pcoded-mtext">Customer</span>
 										</a>
 									</li>
 									<li class="">
-										<a href="<?= base_url() ?>penyakit">
-											<span class="pcoded-micon"><i class="feather icon-list"></i></span>
-											<span class="pcoded-mtext">Data Penyakit</span>
+										<a href="<?= base_url() ?>supplier">
+											<span class="pcoded-micon"><i class="fa fa-truck "></i></span>
+											<span class="pcoded-mtext">Supplier</span>
 										</a>
 									</li>
+
 									<li class="">
-										<a href="<?= base_url() ?>gejala">
-											<span class="pcoded-micon"><i class="feather icon-list"></i></span>
-											<span class="pcoded-mtext">Data Gejala</span>
-										</a>
-									</li>
-									<li class="">
-										<a href="<?= base_url() ?>diagnosa">
+										<a href="<?= base_url() ?>laporan">
 											<span class="pcoded-micon"><i class="feather icon-book"></i></span>
-											<span class="pcoded-mtext">Laporan Diagnosa</span>
+											<span class="pcoded-mtext">Laporan</span>
 										</a>
 									</li>
 									<li class="">
 										<a href="<?= base_url() ?>user">
-											<span class="pcoded-micon"><i class="feather icon-users"></i></span>
+											<span class="pcoded-micon"><i class="feather icon-user"></i></span>
 											<span class="pcoded-mtext">User</span>
 										</a>
 									</li>
@@ -178,21 +206,64 @@
 										</a>
 									</li>
 									<li class="">
-										<a href="<?= base_url() ?>konsultasi">
-											<span class="pcoded-micon"><i class="feather icon-list"></i></span>
-											<span class="pcoded-mtext">Konsultasi</span>
+										<a href="<?= base_url() ?>sale">
+											<span class="pcoded-micon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+											<span class="pcoded-mtext">Transaksi Penjualan</span>
+										</a>
+									</li>
+									<li class="pcoded-hasmenu ">
+										<a href="javascript:void(0)">
+											<span class="pcoded-micon"><i class="fa fa-refresh" aria-hidden="true"></i></span>
+											<span class="pcoded-mtext">Stok In/Out Barang</span>
+										</a>
+										<ul class="pcoded-submenu">
+											<li class="">
+												<a href="<?= base_url() ?>stok_in">
+													<span class="pcoded-mtext">Stok In</span>
+												</a>
+											</li>
+											<li class="">
+												<a href="<?= base_url() ?>stok_out">
+													<span class="pcoded-mtext">Stok Out</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+
+									<li class="pcoded-hasmenu ">
+										<a href="javascript:void(0)">
+											<span class="pcoded-micon"><i class="fa fa-cube"></i></span>
+											<span class="pcoded-mtext">Data Barang</span>
+										</a>
+										<ul class="pcoded-submenu">
+											<li class="">
+												<a href="<?= base_url() ?>barang">
+													<span class="pcoded-mtext">Barang</span>
+												</a>
+											</li>
+											<li class="">
+												<a href="<?= base_url() ?>unit">
+													<span class="pcoded-mtext">Unit</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="">
+										<a href="<?= base_url() ?>service">
+											<span class="pcoded-micon"><i class="fa fa-wrench" aria-hidden="true"></i></span>
+											<span class="pcoded-mtext">Data Jasa Service</span>
 										</a>
 									</li>
 									<li class="">
-										<a href="<?= base_url() ?>penyakit">
-											<span class="pcoded-micon"><i class="feather icon-list"></i></span>
-											<span class="pcoded-mtext">Data Penyakit</span>
+										<a href="<?= base_url() ?>customer">
+											<span class="pcoded-micon"><i class="feather icon-users"></i></span>
+											<span class="pcoded-mtext">Customer</span>
 										</a>
 									</li>
 									<li class="">
-										<a href="<?= base_url() ?>diagnosa">
-											<span class="pcoded-micon"><i class="feather icon-book"></i></span>
-											<span class="pcoded-mtext">Laporan Diagnosa</span>
+										<a href="<?= base_url() ?>supplier">
+											<span class="pcoded-micon"><i class="fa fa-truck "></i></span>
+											<span class="pcoded-mtext">Supplier</span>
 										</a>
 									</li>
 								<?php } ?>
@@ -241,7 +312,6 @@
 	<script src="<?= base_url() ?>assets\libraries\assets\js\jquery.mCustomScrollbar.concat.min.js"></script>
 	<script type="text/javascript" src="<?= base_url() ?>assets\libraries\assets\js\script.js"></script>
 	<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/sweetalert.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/sweetalert.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script src="<?= base_url(); ?>assets/js/dataflash.js"></script>

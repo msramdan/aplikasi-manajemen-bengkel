@@ -7,7 +7,7 @@
 						<div class="col-lg-8">
 							<div class="page-header-title">
 								<div class="d-inline">
-									<h4>Gejala</h4>
+									<h4>Supplier</h4>
 								</div>
 							</div>
 						</div>
@@ -17,8 +17,7 @@
 									<li class="breadcrumb-item">
 										<a href="index-1.htm"> Home </a>
 									</li>
-									<li class="breadcrumb-item"><a href="">Gejala</a>
-									</li>
+									<li class="breadcrumb-item">Supplier</li>
 								</ul>
 							</div>
 						</div>
@@ -30,28 +29,33 @@
 							<div class="card">
 								<div class="card-block" style="overflow-x: scroll;">
 									<div style="padding-bottom: 10px;">
-										<?php echo anchor(site_url('gejala/create'), '<i class="fa fa-plus-square" aria-hidden="true"></i> Tambah Data', 'class="btn btn-grd-info btn sm"'); ?></div>
-									<table id="simpletable" class="table table-bordered table-hover table-td-valign-middle">
+										<?php echo anchor(site_url('supplier/create'), '<i class="fa fa-plus-square" aria-hidden="true"></i> Tambah Data', 'class="btn btn-grd-info btn sm"'); ?></div>
+									<table id="simpletable" class="table table-bordered table-hover nowrap">
 										<thead>
-											<tr>
+											<tr class="table-active">
 												<th>No</th>
-												<th>Kode Gejala</th>
-												<th>Gejala</th>
+												<th>Nama Supplier</th>
+												<th>No Hp</th>
+												<th>Alamat</th>
+												<th>Deskripsi</th>
 												<th>Action</th>
 											</tr>
 										</thead>
 										<tbody><?php $no = 1;
-												foreach ($gejala_data as $gejala) {
+												foreach ($supplier_data as $supplier) {
 												?>
 												<tr>
 													<td><?= $no++ ?></td>
-													<td><?php echo $gejala->kd_gejala ?></td>
-													<td><?php echo $gejala->gejala ?></td>
-													<td style="text-align:center" width="200px">
+													<td><?php echo $supplier->nama_supplier ?></td>
+													<td><?php echo $supplier->no_hp ?></td>
+													<td><?php echo $supplier->alamat ?></td>
+													<td><?php echo $supplier->deskripsi ?></td>
+													<td>
 														<?php
-														echo anchor(site_url('gejala/update/' . encrypt_url($gejala->kd_gejala)), '<i class="fa fa-pencil" aria-hidden="true"></i>', 'class="btn btn-primary btn-sm update_data"');
+
+														echo anchor(site_url('supplier/update/' . encrypt_url($supplier->supplier_id)), '<i class="fa fa-pencil" aria-hidden="true"></i>', 'class="btn btn-grd-primary btn-sm"');
 														echo '  ';
-														echo anchor(site_url('gejala/delete/' . encrypt_url($gejala->kd_gejala)), '<i class="fa fa-trash" aria-hidden="true"></i>', 'class="btn btn-danger btn-sm delete_data" Delete', 'onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
+														echo anchor(site_url('supplier/delete/' . encrypt_url($supplier->supplier_id)), '<i class="fa fa-trash" aria-hidden="true"></i>', 'class="btn btn-grd-danger btn-sm" Delete', 'onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
 														?>
 													</td>
 												</tr>

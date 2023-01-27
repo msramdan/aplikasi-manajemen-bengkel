@@ -3,11 +3,11 @@
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 
-class Penyakit_model extends CI_Model
+class Barang_model extends CI_Model
 {
 
-	public $table = 'penyakit';
-	public $id = 'kd_penyakit';
+	public $table = 'barang';
+	public $id = 'barang_id';
 	public $order = 'DESC';
 
 	function __construct()
@@ -18,6 +18,7 @@ class Penyakit_model extends CI_Model
 	// get all
 	function get_all()
 	{
+		$this->db->join('unit', 'unit.unit_id = barang.unit_id', 'left');
 		$this->db->order_by($this->id, $this->order);
 		return $this->db->get($this->table)->result();
 	}
@@ -32,10 +33,13 @@ class Penyakit_model extends CI_Model
 	// get total rows
 	function total_rows($q = NULL)
 	{
-		$this->db->like('kd_penyakit', $q);
-		$this->db->or_like('penyakit', $q);
-		$this->db->or_like('deskripsi', $q);
-		$this->db->or_like('solusi', $q);
+		$this->db->like('barang_id', $q);
+		$this->db->or_like('kode_barang', $q);
+		$this->db->or_like('nama_barang', $q);
+		$this->db->or_like('unit_id', $q);
+		$this->db->or_like('harga', $q);
+		$this->db->or_like('stok', $q);
+		$this->db->or_like('keterangan', $q);
 		$this->db->from($this->table);
 		return $this->db->count_all_results();
 	}
@@ -59,22 +63,5 @@ class Penyakit_model extends CI_Model
 	{
 		$this->db->where($this->id, $id);
 		$this->db->delete($this->table);
-	}
-
-	public function CreateCode()
-	{
-		$this->db->select('RIGHT(penyakit.kd_penyakit,3) as kd_penyakit', FALSE);
-		$this->db->order_by('kd_penyakit', 'DESC');
-		$this->db->limit(1);
-		$query = $this->db->get('penyakit');
-		if ($query->num_rows() <> 0) {
-			$data = $query->row();
-			$kode = intval($data->kd_penyakit) + 1;
-		} else {
-			$kode = 1;
-		}
-		$batas = str_pad($kode, 3, "0", STR_PAD_LEFT);
-		$kodetampil = "P" . $batas;
-		return $kodetampil;
 	}
 }
