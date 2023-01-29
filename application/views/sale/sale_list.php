@@ -7,7 +7,7 @@
 						<div class="col-lg-8">
 							<div class="page-header-title">
 								<div class="d-inline">
-									<h4>Sale</h4>
+									<h4>Transaksi Penjualan</h4>
 								</div>
 							</div>
 						</div>

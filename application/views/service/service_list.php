@@ -34,6 +34,7 @@
 										<thead>
 											<tr class="table-active">
 												<th>No</th>
+												<th>Kode Service</th>
 												<th>Nama Service</th>
 												<th>Harga</th>
 												<th>Keterangan</th>
@@ -45,12 +46,12 @@
 												?>
 												<tr>
 													<td><?= $no++ ?></td>
+													<td><?php echo $service->kode_service ?></td>
 													<td><?php echo $service->nama_service ?></td>
 													<td><?php echo $service->harga ?></td>
 													<td><?php echo $service->keterangan ?></td>
 													<td>
 														<?php
-
 														echo anchor(site_url('service/update/' . encrypt_url($service->service_id)), '<i class="fa fa-pencil" aria-hidden="true"></i>', 'class="btn btn-grd-primary btn-sm"');
 														echo '  ';
 														echo anchor(site_url('service/delete/' . encrypt_url($service->service_id)), '<i class="fa fa-trash" aria-hidden="true"></i>', 'class="btn btn-grd-danger btn-sm" Delete', 'onclick="javasciprt: return confirm(\'Are You Sure ?\')"');

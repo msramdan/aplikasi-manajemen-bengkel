@@ -8,7 +8,7 @@ class Service extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		is_login();
+		// is_login();
 		$this->load->model('Service_model');
 		$this->load->library('form_validation');
 	}
@@ -28,6 +28,7 @@ class Service extends CI_Controller
 		if ($row) {
 			$data = array(
 				'service_id' => $row->service_id,
+				'kode_service' => $row->kode_service,
 				'nama_service' => $row->nama_service,
 				'harga' => $row->harga,
 				'keterangan' => $row->keterangan,
@@ -44,6 +45,7 @@ class Service extends CI_Controller
 		$data = array(
 			'button' => 'Create',
 			'action' => site_url('service/create_action'),
+			'kode_service' => $this->Service_model->CreateCode(),
 			'service_id' => set_value('service_id'),
 			'nama_service' => set_value('nama_service'),
 			'harga' => set_value('harga'),
@@ -60,6 +62,7 @@ class Service extends CI_Controller
 			$this->create();
 		} else {
 			$data = array(
+				'kode_service' => $this->input->post('kode_service', TRUE),
 				'nama_service' => $this->input->post('nama_service', TRUE),
 				'harga' => $this->input->post('harga', TRUE),
 				'keterangan' => $this->input->post('keterangan', TRUE),
@@ -80,6 +83,7 @@ class Service extends CI_Controller
 				'button' => 'Update',
 				'action' => site_url('service/update_action'),
 				'service_id' => set_value('service_id', $row->service_id),
+				'kode_service' => set_value('kode_service', $row->kode_service),
 				'nama_service' => set_value('nama_service', $row->nama_service),
 				'harga' => set_value('harga', $row->harga),
 				'keterangan' => set_value('keterangan', $row->keterangan),
@@ -99,6 +103,7 @@ class Service extends CI_Controller
 			$this->update($this->input->post('service_id', TRUE));
 		} else {
 			$data = array(
+				'kode_service' => $this->input->post('kode_service', TRUE),
 				'nama_service' => $this->input->post('nama_service', TRUE),
 				'harga' => $this->input->post('harga', TRUE),
 				'keterangan' => $this->input->post('keterangan', TRUE),
@@ -126,6 +131,7 @@ class Service extends CI_Controller
 
 	public function _rules()
 	{
+		$this->form_validation->set_rules('kode_service', 'kode service', 'trim|required');
 		$this->form_validation->set_rules('nama_service', 'nama service', 'trim|required');
 		$this->form_validation->set_rules('harga', 'harga', 'trim|required');
 		$this->form_validation->set_rules('keterangan', 'keterangan', 'trim|required');

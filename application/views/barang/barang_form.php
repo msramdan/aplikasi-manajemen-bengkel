@@ -33,7 +33,7 @@
 											<table id="data-table-default" class="table  table-bordered table-hover table-td-valign-middle">
 												<tr>
 													<td>Kode Barang <?php echo form_error('kode_barang') ?></td>
-													<td><input type="text" class="form-control" name="kode_barang" id="kode_barang" placeholder="Kode Barang" value="<?php echo $kode_barang; ?>" /></td>
+													<td><input readonly type="text" class="form-control" name="kode_barang" id="kode_barang" placeholder="Kode Barang" value="<?php echo $kode_barang; ?>" /></td>
 												</tr>
 												<tr>
 													<td>Nama Barang <?php echo form_error('nama_barang') ?></td>

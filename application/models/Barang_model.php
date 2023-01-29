@@ -64,4 +64,21 @@ class Barang_model extends CI_Model
 		$this->db->where($this->id, $id);
 		$this->db->delete($this->table);
 	}
+
+	public function CreateCode()
+	{
+		$this->db->select('RIGHT(barang.kode_barang,3) as kode_barang', FALSE);
+		$this->db->order_by('kode_barang', 'DESC');
+		$this->db->limit(1);
+		$query = $this->db->get('barang');
+		if ($query->num_rows() <> 0) {
+			$data = $query->row();
+			$kode = intval($data->kode_barang) + 1;
+		} else {
+			$kode = 1;
+		}
+		$batas = str_pad($kode, 3, "0", STR_PAD_LEFT);
+		$kodetampil = "B" . $batas;
+		return $kodetampil;
+	}
 }
