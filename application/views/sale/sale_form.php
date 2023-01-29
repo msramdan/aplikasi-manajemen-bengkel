@@ -119,20 +119,22 @@
 
 
 											<div class="col-md-12">
-												<table class="table table-striped table-hover table-bordered table-sm mt-3" id="tbl-cart">
-													<thead>
-														<tr>
-															<th>#</th>
-															<th>Barang / Jasa Service</th>
-															<th>Harga</th>
-															<th>Qty</th>
-															<th>Subtotal</th>
-															<th>Action</th>
-														</tr>
-													</thead>
-													<tbody>
-													</tbody>
-												</table>
+												<div class="table-responsive">
+													<table class="table table-striped table-hover table-bordered table-sm mt-3" id="tbl-cart">
+														<thead>
+															<tr>
+																<th>#</th>
+																<th>Barang / Jasa Service</th>
+																<th>Harga</th>
+																<th>Qty</th>
+																<th>Subtotal</th>
+																<th>Action</th>
+															</tr>
+														</thead>
+														<tbody>
+														</tbody>
+													</table>
+												</div>
 											</div>
 											<div class="col-md-12">
 												<div class="row mt-4">
