@@ -106,6 +106,8 @@ class Sale extends CI_Controller
 					'total' => $subtotal[$i],
 				];
 				$this->db->insert('sale_detail_barang', $detailBarang);
+				$fix = $qty[$i];
+				$this->db->query("UPDATE barang SET stok = stok - $fix WHERE barang_id='$barang_id'");
 			}
 		}
 		$params = array(
@@ -166,9 +168,11 @@ class Sale extends CI_Controller
 	public function delete($id)
 	{
 		$row = $this->Sale_model->get_by_id(decrypt_url($id));
+		$sale_id = $row->sale_id;
 
 		if ($row) {
 			$this->Sale_model->delete(decrypt_url($id));
+			$this->db->query("DELETE FROM sale_detail_barang WHERE sale_id='$sale_id'");
 			$this->session->set_flashdata('message', 'Delete Record Success');
 			redirect(site_url('sale'));
 		} else {
