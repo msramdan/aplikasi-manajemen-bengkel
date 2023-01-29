@@ -37,6 +37,7 @@
 												<th>No</th>
 												<th>Invoice</th>
 												<th>Customer</th>
+												<th>Mekanik</th>
 												<th>Total</th>
 												<th>Bayar</th>
 												<th>Kembalian</th>
@@ -52,9 +53,10 @@
 													<td><?= $no++ ?></td>
 													<td><?php echo $laporan->invoice ?></td>
 													<td><?php echo $laporan->nama_customer ?></td>
-													<td><?php echo $laporan->total ?></td>
-													<td><?php echo $laporan->bayar ?></td>
-													<td><?php echo $laporan->kembalian ?></td>
+													<td><?php echo $laporan->nama_mekanik ?></td>
+													<td><?php echo rupiah($laporan->total)  ?></td>
+													<td><?php echo rupiah($laporan->bayar)  ?></td>
+													<td><?php echo rupiah($laporan->kembalian)  ?></td>
 													<td><?php echo $laporan->note ?></td>
 													<td><?php echo $laporan->tanggal ?></td>
 													<td><?php echo $laporan->nama ?></td>

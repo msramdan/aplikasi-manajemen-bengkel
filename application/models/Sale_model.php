@@ -18,6 +18,9 @@ class Sale_model extends CI_Model
 	// get all
 	function get_all()
 	{
+		$this->db->join('customer', 'customer.customer_id = sale.customer_id', 'left');
+		$this->db->join('user', 'user.user_id = sale.user_id', 'left');
+		$this->db->join('mekanik', 'mekanik.mekanik_id = sale.mekanik_id', 'left');
 		$this->db->order_by($this->id, $this->order);
 		return $this->db->get($this->table)->result();
 	}

@@ -35,13 +35,14 @@
 											<tr class="table-active">
 												<th>No</th>
 												<th>Invoice</th>
-												<th>Customer Id</th>
+												<th>Customer</th>
+												<th>Mekanik</th>
 												<th>Total</th>
 												<th>Bayar</th>
 												<th>Kembalian</th>
 												<th>Note</th>
 												<th>Tanggal</th>
-												<th>User Id</th>
+												<th>Penginput</th>
 												<th>Action</th>
 											</tr>
 										</thead>
@@ -51,16 +52,17 @@
 												<tr>
 													<td><?= $no++ ?></td>
 													<td><?php echo $sale->invoice ?></td>
-													<td><?php echo $sale->customer_id ?></td>
-													<td><?php echo $sale->total ?></td>
-													<td><?php echo $sale->bayar ?></td>
-													<td><?php echo $sale->kembalian ?></td>
+													<td><?php echo $sale->nama_customer ?></td>
+													<td><?php echo $sale->nama_mekanik ?></td>
+													<td><?php echo rupiah($sale->total)  ?></td>
+													<td><?php echo rupiah($sale->bayar)  ?></td>
+													<td><?php echo rupiah($sale->kembalian)  ?></td>
 													<td><?php echo $sale->note ?></td>
 													<td><?php echo $sale->tanggal ?></td>
-													<td><?php echo $sale->user_id ?></td>
+													<td><?php echo $sale->nama ?></td>
 													<td>
 														<?php
-														echo anchor(site_url('sale/update/' . encrypt_url($sale->sale_id)), '<i class="fa fa-pencil" aria-hidden="true"></i>', 'class="btn btn-grd-primary btn-sm"');
+														echo anchor(site_url('sale/update/' . encrypt_url($sale->sale_id)), '<i class="fa fa-print" aria-hidden="true"></i>', 'class="btn btn-grd-primary btn-sm"');
 														echo '  ';
 														echo anchor(site_url('sale/delete/' . encrypt_url($sale->sale_id)), '<i class="fa fa-trash" aria-hidden="true"></i>', 'class="btn btn-grd-danger btn-sm" Delete', 'onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
 														?>

@@ -47,6 +47,7 @@ class Laporan extends CI_Controller
 		xlsWriteLabel($tablehead, $kolomhead++, "No");
 		xlsWriteLabel($tablehead, $kolomhead++, "Invoice");
 		xlsWriteLabel($tablehead, $kolomhead++, "Customer");
+		xlsWriteLabel($tablehead, $kolomhead++, "Mekanik");
 		xlsWriteLabel($tablehead, $kolomhead++, "Total");
 		xlsWriteLabel($tablehead, $kolomhead++, "Bayar");
 		xlsWriteLabel($tablehead, $kolomhead++, "Kembalian");
@@ -61,6 +62,7 @@ class Laporan extends CI_Controller
 			xlsWriteNumber($tablebody, $kolombody++, $nourut);
 			xlsWriteLabel($tablebody, $kolombody++, $data->invoice);
 			xlsWriteLabel($tablebody, $kolombody++, $data->nama_customer);
+			xlsWriteLabel($tablebody, $kolombody++, $data->nama_mekanik);
 			xlsWriteNumber($tablebody, $kolombody++, $data->total);
 			xlsWriteNumber($tablebody, $kolombody++, $data->bayar);
 			xlsWriteNumber($tablebody, $kolombody++, $data->kembalian);

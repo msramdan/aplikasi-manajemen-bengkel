@@ -48,7 +48,7 @@
 													<td><?= $no++ ?></td>
 													<td><?php echo $service->kode_service ?></td>
 													<td><?php echo $service->nama_service ?></td>
-													<td><?php echo $service->harga ?></td>
+													<td><?php echo rupiah($service->harga) ?></td>
 													<td><?php echo $service->keterangan ?></td>
 													<td>
 														<?php

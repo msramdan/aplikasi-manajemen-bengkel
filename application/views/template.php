@@ -22,6 +22,8 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets\libraries\assets\css\jquery.mCustomScrollbar.css">
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets\libraries\assets\icon\font-awesome\css\font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets\libraries\assets\icon\icofont\css\icofont.css">
+	<script type="text/javascript" src="<?= base_url() ?>assets\libraries\bower_components\jquery\js\jquery.min.js"></script>
+	<script type="text/javascript" src="<?= base_url() ?>assets\libraries\bower_components\jquery-ui\js\jquery-ui.min.js"></script>
 
 </head>
 
@@ -297,8 +299,7 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="<?= base_url() ?>assets\libraries\bower_components\jquery\js\jquery.min.js"></script>
-	<script type="text/javascript" src="<?= base_url() ?>assets\libraries\bower_components\jquery-ui\js\jquery-ui.min.js"></script>
+
 	<script type="text/javascript" src="<?= base_url() ?>assets\libraries\bower_components\popper.js\js\popper.min.js"></script>
 	<script type="text/javascript" src="<?= base_url() ?>assets\libraries\bower_components\bootstrap\js\bootstrap.min.js"></script>
 	<!-- jquery slimscroll js -->

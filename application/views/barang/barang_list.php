@@ -52,7 +52,7 @@
 													<td><?php echo $barang->kode_barang ?></td>
 													<td><?php echo $barang->nama_barang ?></td>
 
-													<td><?php echo $barang->harga ?></td>
+													<td><?php echo rupiah($barang->harga) ?></td>
 													<td><?php echo $barang->stok ?></td>
 													<td><?php echo $barang->nama_unit ?></td>
 													<td><?php echo $barang->keterangan ?></td>

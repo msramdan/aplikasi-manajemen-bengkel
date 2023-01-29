@@ -29,42 +29,9 @@ function check_admin()
 	}
 }
 
-function namaGejala($kd_gejala)
+function rupiah($angka)
 {
-	$ci = &get_instance();
-	$jml = $ci->db->query("SELECT * FROM gejala WHERE kd_gejala ='$kd_gejala' ");
-	if ($jml->num_rows() == 0) {
-		$value = 'None';
-	} else {
-		$x = $jml->row();
-		$value = $x->gejala;
-	}
-	return $value;
-}
 
-function checked($kd_kasus, $kd_penyakit, $kd_gejala)
-{
-	$ci = &get_instance();
-	$jml = $ci->db->query("SELECT * FROM pengetahuan WHERE kd_kasus ='$kd_kasus' AND kd_gejala ='$kd_gejala' AND kd_penyakit ='$kd_penyakit' ");
-	if ($jml->num_rows() > 0) {
-		return "checked";
-	}
-}
-
-function pembilang($kd_penyakit, $kd_gejala)
-{
-	$ci = &get_instance();
-	$data = $ci->db->query("SELECT * FROM temp_probabilitas_gejala join temp_probabilitas on temp_probabilitas.kd_penyakit = temp_probabilitas_gejala.kd_penyakit where kd_gejala='$kd_gejala' AND temp_probabilitas_gejala.kd_penyakit='$kd_penyakit' ")->row();
-	return $data->nilai * $data->probabilitas;
-}
-
-function penyebut($kd_gejala)
-{
-	$ci = &get_instance();
-	$data = $ci->db->query("SELECT * FROM temp_probabilitas_gejala join temp_probabilitas on temp_probabilitas.kd_penyakit = temp_probabilitas_gejala.kd_penyakit where kd_gejala='$kd_gejala'")->result();
-	$nilaiTotal = 0;
-	foreach ($data as $value) {
-		$nilaiTotal = $nilaiTotal + ($value->nilai * $value->probabilitas);
-	}
-	return $nilaiTotal;
+	$hasil_rupiah = "Rp " . number_format($angka, 2, ',', '.');
+	return $hasil_rupiah;
 }
