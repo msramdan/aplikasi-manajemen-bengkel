@@ -71,7 +71,7 @@ class Sale extends CI_Controller
 			'bayar' => $this->input->post('bayar', TRUE),
 			'kembalian' => $this->input->post('kembalian', TRUE),
 			'note' => $catatan,
-			'tanggal' => $this->input->post('tanggal', TRUE) . ' ' . date('H:s:i'),
+			'tanggal' => $this->input->post('tanggal', TRUE),
 			'user_id' => $this->input->post('user_id', TRUE),
 		);
 		$this->db->insert('sale', $data);
@@ -205,6 +205,33 @@ class Sale extends CI_Controller
 			"type" => $cek
 		);
 		echo json_encode($params);
+	}
+
+	public function cetak($id)
+	{
+		$row = $this->Sale_model->get_by_id(decrypt_url($id));
+
+		if ($row) {
+			$sale_detail = $this->db->query("SELECT * FROM sale_detail_barang LEFT JOIN barang on barang.barang_id = sale_detail_barang.barang_id where sale_id='$row->sale_id'")->result();
+			$sale_detail_service = $this->db->query("SELECT * FROM sale_detail_service LEFT JOIN service on service.service_id = sale_detail_service.service_id where sale_id='$row->sale_id'")->result();
+			$data = array(
+				'invoice' => set_value('invoice', $row->invoice),
+				'customer_id' => set_value('customer_id', $row->nama_customer),
+				'mekanik_id' => set_value('customer_id', $row->nama_mekanik),
+				'total' => set_value('total', $row->total),
+				'bayar' => set_value('bayar', $row->bayar),
+				'kembalian' => set_value('kembalian', $row->kembalian),
+				'note' => set_value('note', $row->note),
+				'tanggal' => set_value('tanggal', $row->tanggal),
+				'user_id' => set_value('user_id', $row->nama),
+				'sale_detail' => $sale_detail,
+				'sale_detail_service' => $sale_detail_service,
+			);
+			$this->load->view('sale/cetak', $data);
+		} else {
+			$this->session->set_flashdata('message', 'Record Not Found');
+			redirect(site_url('sale'));
+		}
 	}
 }
 

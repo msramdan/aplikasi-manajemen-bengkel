@@ -28,6 +28,9 @@ class Sale_model extends CI_Model
 	// get data by id
 	function get_by_id($id)
 	{
+		$this->db->join('customer', 'customer.customer_id = sale.customer_id', 'left');
+		$this->db->join('user', 'user.user_id = sale.user_id', 'left');
+		$this->db->join('mekanik', 'mekanik.mekanik_id = sale.mekanik_id', 'left');
 		$this->db->where($this->id, $id);
 		return $this->db->get($this->table)->row();
 	}

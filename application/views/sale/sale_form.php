@@ -59,7 +59,7 @@
 											<div class="col-md-6">
 												<div class="mb-3">
 													<label for="tanggal">Tanggal Transaksi</label>
-													<input class="form-control" id="tanggal" type="date" value="" placeholder="Tanggal" name="tanggal" autocomplete="off">
+													<input class="form-control" id="tanggal" type="datetime-local" value="" placeholder="Tanggal" name="tanggal" autocomplete="off">
 												</div>
 												<div class="mb-3">
 													<label for="mekanik_id">Mekanik <span style="color: red;">*Pilih jika ada mekanik yang mengerjakan</span> </label>

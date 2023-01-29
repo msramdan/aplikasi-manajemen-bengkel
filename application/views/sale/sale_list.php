@@ -62,7 +62,7 @@
 													<td><?php echo $sale->nama ?></td>
 													<td>
 														<?php
-														echo anchor(site_url('sale/update/' . encrypt_url($sale->sale_id)), '<i class="fa fa-print" aria-hidden="true"></i>', 'class="btn btn-grd-primary btn-sm"');
+														echo anchor(site_url('sale/cetak/' . encrypt_url($sale->sale_id)), '<i class="fa fa-print" aria-hidden="true"></i>', 'class="btn btn-grd-primary btn-sm"');
 														echo '  ';
 														echo anchor(site_url('sale/delete/' . encrypt_url($sale->sale_id)), '<i class="fa fa-trash" aria-hidden="true"></i>', 'class="btn btn-grd-danger btn-sm" Delete', 'onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
 														?>
