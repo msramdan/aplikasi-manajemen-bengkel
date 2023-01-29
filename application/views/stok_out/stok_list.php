@@ -7,7 +7,7 @@
 						<div class="col-lg-8">
 							<div class="page-header-title">
 								<div class="d-inline">
-									<h4>Barang</h4>
+									<h4>Stok Out</h4>
 								</div>
 							</div>
 						</div>
@@ -17,7 +17,7 @@
 									<li class="breadcrumb-item">
 										<a href="index-1.htm"> Home </a>
 									</li>
-									<li class="breadcrumb-item">Barang</li>
+									<li class="breadcrumb-item">Stok Out</li>
 								</ul>
 							</div>
 						</div>
@@ -29,39 +29,32 @@
 							<div class="card">
 								<div class="card-block" style="overflow-x: scroll;">
 									<div style="padding-bottom: 10px;">
-										<?php echo anchor(site_url('barang/create'), '<i class="fa fa-plus-square" aria-hidden="true"></i> Tambah Data', 'class="btn btn-grd-info btn sm"'); ?></div>
+										<?php echo anchor(site_url('stok_out/create'), '<i class="fa fa-plus-square" aria-hidden="true"></i> Tambah Data', 'class="btn btn-grd-info btn sm"'); ?></div>
 									<table id="simpletable" class="table table-bordered table-hover nowrap">
 										<thead>
 											<tr class="table-active">
 												<th>No</th>
-												<th>Kode Barang</th>
-												<th>Nama Barang</th>
-
-												<th>Harga</th>
-												<th>Stok</th>
-												<th>Unit</th>
-												<th>Keterangan</th>
+												<th>Barang</th>
+												<th>Type</th>
+												<th>Detail</th>
+												<th>Qty</th>
+												<th>Tanggal</th>
 												<th>Action</th>
 											</tr>
 										</thead>
 										<tbody><?php $no = 1;
-												foreach ($barang_data as $barang) {
+												foreach ($stok_out_data as $stok_out) {
 												?>
 												<tr>
 													<td><?= $no++ ?></td>
-													<td><?php echo $barang->kode_barang ?></td>
-													<td><?php echo $barang->nama_barang ?></td>
-
-													<td><?php echo $barang->harga ?></td>
-													<td><?php echo $barang->stok ?></td>
-													<td><?php echo $barang->nama_unit ?></td>
-													<td><?php echo $barang->keterangan ?></td>
+													<td><?php echo $stok_out->barang_id ?></td>
+													<td><?php echo $stok_out->type ?></td>
+													<td><?php echo $stok_out->detail ?></td>
+													<td><?php echo $stok_out->qty ?></td>
+													<td><?php echo $stok_out->tanggal ?></td>
 													<td>
 														<?php
-
-														echo anchor(site_url('barang/update/' . encrypt_url($barang->barang_id)), '<i class="fa fa-pencil" aria-hidden="true"></i>', 'class="btn btn-grd-primary btn-sm"');
-														echo '  ';
-														echo anchor(site_url('barang/delete/' . encrypt_url($barang->barang_id)), '<i class="fa fa-trash" aria-hidden="true"></i>', 'class="btn btn-grd-danger btn-sm" Delete', 'onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
+														echo anchor(site_url('stok_out/delete/' . encrypt_url($stok_out->stok_id)), '<i class="fa fa-trash" aria-hidden="true"></i>', 'class="btn btn-grd-danger btn-sm" Delete', 'onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
 														?>
 													</td>
 												</tr>

@@ -180,11 +180,18 @@
 										</a>
 									</li>
 									<li class="">
+										<a href="<?= base_url() ?>mekanik">
+											<span class="pcoded-micon"><i class="feather icon-users"></i></span>
+											<span class="pcoded-mtext">Mekanik</span>
+										</a>
+									</li>
+									<li class="">
 										<a href="<?= base_url() ?>supplier">
 											<span class="pcoded-micon"><i class="fa fa-truck "></i></span>
 											<span class="pcoded-mtext">Supplier</span>
 										</a>
 									</li>
+
 
 									<li class="">
 										<a href="<?= base_url() ?>laporan">
@@ -258,6 +265,12 @@
 										<a href="<?= base_url() ?>customer">
 											<span class="pcoded-micon"><i class="feather icon-users"></i></span>
 											<span class="pcoded-mtext">Customer</span>
+										</a>
+									</li>
+									<li class="">
+										<a href="<?= base_url() ?>mekanik">
+											<span class="pcoded-micon"><i class="feather icon-users"></i></span>
+											<span class="pcoded-mtext">Mekanik</span>
 										</a>
 									</li>
 									<li class="">
