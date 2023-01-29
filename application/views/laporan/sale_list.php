@@ -36,14 +36,13 @@
 											<tr class="table-active">
 												<th>No</th>
 												<th>Invoice</th>
-												<th>Customer Id</th>
+												<th>Customer</th>
 												<th>Total</th>
 												<th>Bayar</th>
 												<th>Kembalian</th>
 												<th>Note</th>
 												<th>Tanggal</th>
-												<th>User Id</th>
-												<th>Action</th>
+												<th>Penginput</th>
 											</tr>
 										</thead>
 										<tbody><?php $no = 1;
@@ -52,22 +51,13 @@
 												<tr>
 													<td><?= $no++ ?></td>
 													<td><?php echo $laporan->invoice ?></td>
-													<td><?php echo $laporan->customer_id ?></td>
+													<td><?php echo $laporan->nama_customer ?></td>
 													<td><?php echo $laporan->total ?></td>
 													<td><?php echo $laporan->bayar ?></td>
 													<td><?php echo $laporan->kembalian ?></td>
 													<td><?php echo $laporan->note ?></td>
 													<td><?php echo $laporan->tanggal ?></td>
-													<td><?php echo $laporan->user_id ?></td>
-													<td>
-														<?php
-														echo anchor(site_url('laporan/read/' . encrypt_url($laporan->sale_id)), '<i class="fa fa-eye" aria-hidden="true"></i>', 'class="btn btn-grd-success btn-sm read_data"');
-														echo '  ';
-														echo anchor(site_url('laporan/update/' . encrypt_url($laporan->sale_id)), '<i class="fa fa-pencil" aria-hidden="true"></i>', 'class="btn btn-grd-primary btn-sm"');
-														echo '  ';
-														echo anchor(site_url('laporan/delete/' . encrypt_url($laporan->sale_id)), '<i class="fa fa-trash" aria-hidden="true"></i>', 'class="btn btn-grd-danger btn-sm" Delete', 'onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
-														?>
-													</td>
+													<td><?php echo $laporan->nama ?></td>
 												</tr>
 											<?php } ?>
 										</tbody>
